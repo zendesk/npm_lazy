@@ -1,3 +1,6 @@
 node_modules/
 db/
+vendor/bundle/bin/
+vendor/bundle/gems/
+vendor/bundle/specifications/
 
