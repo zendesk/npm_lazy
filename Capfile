@@ -27,7 +27,7 @@ end
 # zendesk_npm_lazy deploy
 namespace :zendesk_npm_lazy do
   task :restart do
-    sudo "sv restart zendesk_npm_lazy"
+    sudo "sv restart npm_lazy"
   end
 
   task :update_code do
