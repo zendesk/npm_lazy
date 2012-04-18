@@ -37,7 +37,7 @@ namespace :zendesk_npm_lazy do
   end
 
   task :update_config do
-    run "ln -nfs /data/zendesk/config/npm_lazy_config.js #{release_path}/config.js"
+    run "ln -nfs /data/zendesk_npm_lazy/config/config.js #{release_path}/config.js"
     run "ln -nfs /var/log/zendesk #{release_path}/log"
   end
 end
