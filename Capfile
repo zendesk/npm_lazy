@@ -4,7 +4,7 @@ require 'yaml'
 require 'json'
 require 'alpha_omega/deploy'
 
-set :repository, "git@github.com:zendesk/zendesk_npm_lazy.git"
+set :repository, "git@github.com:zendesk/npm_lazy.git"
 set :application, "zendesk_npm_lazy"
 set :releases, [ "alpha", "omega" ]
 set :deploy_to, "/data/#{application}"
