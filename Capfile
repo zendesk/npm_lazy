@@ -31,6 +31,8 @@ namespace :zendesk_npm_lazy do
   end
 
   task :update_code do
+    run "cd #{release_path} && rm -rf node_modules/ || true"
+    run "cd #{release_path} && PATH=#{release_path}/bin:$PATH nice npm install --production"
     update_config
   end
 
