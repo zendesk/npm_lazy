@@ -13,7 +13,7 @@ set :user, "zendesk"
 set :group, "zendesk"
 
 # ruby
-set :ruby_loader, "/data/zendesk/bin/rvmrun ree"
+set :ruby_loader, "/usr/local/bin/rvmrun default"
 
 # branches
 set :branch, AlphaOmega.what_branch(%w(master) + [%r(/)])
