@@ -1,4 +1,3 @@
 source 'https://rubygems.org'
 
-gem "alpha_omega"
-gem "json"
+gem "zendesk_deployment", :git => 'git@github.com:zendesk/zendesk_deployment.git'
