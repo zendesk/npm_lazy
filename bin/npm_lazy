@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+var fs = require('fs'),
+    path = require('path'),
+    nodeResolve = require('resolve'),
+    start = require('../server.js'),
+    opts = require('optimist')
+      .options({
+        'config': { },
+        'help': { alias: 'h' },
+        'init': { },
+        'show-config': { },
+        'version': { }
+      }),
+    argv = opts.parse(process.argv);
+
+if(argv['version'] || argv['v'] ) {
+  console.log(require('../package.json').version);
+  process.exit();
+}
+
+if(argv['init']) {
+  return fs.createReadStream(__dirname + '/../config.js')
+    .pipe(process.stdout)
+    .on('close', function () {
+      process.exit();
+    });
+}
+
+if(argv['help']) {
+  return fs.createReadStream(__dirname + '/usage.txt')
+    .pipe(process.stdout)
+    .on('close', function () {
+      process.exit();
+    });
+}
+
+var config = require('../config.js'),
+    configPath = path.normalize(__dirname + '/../config.js');
+
+if (argv['config']){
+  configPath = nodeResolve.sync(argv.config, { basedir: process.cwd() });
+  config = require(configPath);
+}
+
+if (argv['show-config']) {
+  console.log(configPath, config);
+}
+
+start(config);
